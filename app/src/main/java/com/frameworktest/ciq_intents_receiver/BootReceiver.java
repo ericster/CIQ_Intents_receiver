@@ -2,6 +2,7 @@ package com.frameworktest.ciq_intents_receiver;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +16,18 @@ public class BootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("CIQ_Intent_test", "boot_completed_received");
         showNotification(context);
+
     }
 
     private void showNotification(Context context) {
-        Notification.Builder mBuilder =
-                new Notification.Builder(context)
+        Intent notificationIntent = new Intent(context, LogActivity.class);
+        notificationIntent.putExtra("CallLog", "Received Intent: xxx disconnected ");
+        PendingIntent contentIntent = PendingIntent.getActivity(context,
+                0, notificationIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+
+        Notification.Builder mBuilder = new Notification.Builder(context);
+        mBuilder.setContentIntent(contentIntent)
                         .setSmallIcon(R.drawable.ic_launcher)
                         .setContentTitle("CIQ Intents ")
                         .setContentText("Boot completed!");

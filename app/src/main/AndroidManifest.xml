@@ -35,9 +35,14 @@
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.frameworktest.ciq_intents_receiver.LogActivity"
+            android:label="@string/title_activity_log" >
+        </activity>
     </application>
 
 </manifest>

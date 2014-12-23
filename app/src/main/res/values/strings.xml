@@ -4,5 +4,8 @@
     <string name="app_name">CIQ_Intents_receiver</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="instruction"> This app will show a notification when a call is erroneously disconnected.</string>
+    <string name="title_activity_log">LogActivity</string>
+    <string name="log_title">Call disconnected log</string>
 
 </resources>

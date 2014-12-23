@@ -1,40 +1,32 @@
 package com.frameworktest.ciq_intents_receiver;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class LogActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String logEntry = intent.getStringExtra("CallLog");
 
-        showNotification(this);
+        setContentView(R.layout.activity_log);
+        TextView tv = (TextView) findViewById(R.id.logcatEntry);
+        tv.setText(logEntry);
+
     }
 
-    private void showNotification(Context context) {
-
-        Notification.Builder mBuilder =
-                new Notification.Builder(context)
-                        .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle("CAll disconnect")
-                        .setContentText("CIQ_Intent_test: Main activity launched!");
-        NotificationManager mNotificationManager =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(1, mBuilder.build());
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_log, menu);
         return true;
     }
 
