@@ -5,7 +5,6 @@
     <uses-permission android:name="diagandroid.app.receiveDetailedApplicationState" />
     <uses-permission android:name="diagandroid.phone.receiveDetailedCallState" />
     <uses-permission android:name="diagandroid.data.receivePDPContextState" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
