@@ -41,7 +41,7 @@ public class CallDisconnectReceiver extends BroadcastReceiver {
         mBuilder.setContentIntent(contentIntent)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle("CIQ Intents ")
-                .setContentText("Boot completed!");
+                .setContentText("Call disconnect received!");
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(1, mBuilder.build());
